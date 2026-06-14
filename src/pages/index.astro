@@ -1,0 +1,361 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+
+const posts = (await getCollection("writing", ({ data }) => !data.draft)).sort(
+  (a, b) => (b.data.date?.valueOf() ?? 0) - (a.data.date?.valueOf() ?? 0)
+);
+---
+
+<Base>
+  <main class="wrap" id="top">
+    {/* HERO */}
+    <section class="hero">
+      <div class="globe-wrap" aria-hidden="true">
+        <canvas class="globe"></canvas>
+        <span class="globe-hint">give it a spin ↻</span>
+      </div>
+      <div class="hero-copy">
+        <span class="hello r">Hey there, I'm</span>
+        <h1><span class="r">Calvin</span> <span class="r">Zhou</span></h1>
+        <p class="lead r">I build systems that perceive, reason, and act, from autonomous drones to agentic search.</p>
+        <div class="meta">
+          <div class="r"><span class="lbl">Now</span><b>SWE @ Bodhium Labs</b></div>
+          <div class="r"><span class="lbl">Research</span><b>Penn PAL Group</b></div>
+        </div>
+      </div>
+      <div class="scrollcue" aria-hidden="true">↓</div>
+    </section>
+
+    {/* PROJECTS */}
+    <section id="projects" data-reveal>
+      <div class="shead"><span class="ix r">_01</span><h2 class="r">Selected Projects</h2></div>
+      <div class="projects">
+
+        <article class="proj linked" data-diag>
+          <div>
+            <span class="code r">A2D2</span>
+            <h3 class="r">Autonomous Wildfire Detection</h3>
+                <p class="r">A drone network that finds wildfires before they spread. Deep computer vision, coverage-path planning, and deep RL in one pipeline.</p>
+            <p class="result r">Validated by CalFire, USFS &amp; NASA</p>
+            <div class="tags"><span class="r">Deep RL</span><span class="r">Computer Vision</span><span class="r">Algorithms</span></div>
+            <div class="proj-links r">              
+              <a href="https://ieeexplore.ieee.org/document/10679999" target="_blank" rel="noopener">Paper <span class="ar">↗</span></a>
+              <a href="https://github.com/calvinyz/a2d2" target="_blank" rel="noopener">Code <span class="ar">↗</span></a>
+            </div>
+          </div>
+          <div class="frame tinted r">
+            <img src="/images/a2d2.png" alt="A2D2" />
+          </div>
+        </article>
+
+        <article class="proj linked" data-diag>
+          <div>
+            <span class="code r">AIBEE</span>
+            <h3 class="r">Block-coding AI Classroom</h3>
+                <p class="r">A platform that teaches AI by letting students build it. Live Python, a code to blocks compiler, and an AI tutor.</p>
+            <p class="result r">Piloted with 20+ students</p>
+            <div class="tags"><span class="r">Full-stack</span><span class="r">MCP</span><span class="r">Kernels</span></div>
+            <div class="proj-links r">
+              <a href="https://raise.mit.edu/wp-content/uploads/2025/08/MIT_AIED_2024-Calvin-Zhou-AI-Driven-Block-coding-Educational-Environment-for-Teaching-Learning-and-Prototyping-AI.pdf" target="_blank" rel="noopener">Paper <span class="ar">↗</span></a>
+              <a href="https://www.youtube.com/watch?v=wQJZNJDN83c" target="_blank" rel="noopener">Talk <span class="ar">↗</span></a>
+              <a href="https://github.com/calvinyz/aibee" target="_blank" rel="noopener">Code <span class="ar">↗</span></a>
+            </div>
+          </div>
+          <div class="frame tinted r">
+            <img src="/images/aibee.png" alt="AIBEE" />
+          </div>
+        </article>
+
+        <article class="proj linked" data-diag>
+          <div>
+            <span class="code r">CRIT</span>
+            <h3 class="r">Critique-driven Reward Models</h3>
+                <p class="r">A reward model for UI design. LLM judges score rendered screenshots across critique loops, yielding a failure taxonomy for fine-tuning.</p>
+            <div class="tags"><span class="r">RL Envs</span><span class="r">LLM Evals</span><span class="r">Fine-tuning</span></div>
+            <div class="proj-links r">              
+              <a href="https://github.com/calvinyz/crit" target="_blank" rel="noopener">Code <span class="ar">↗</span></a>
+            </div>
+          </div>
+          <div class="frame tinted r">
+            <img src="/images/crit.png" alt="CRIT" />
+          </div>
+        </article>
+        <article class="proj soon" data-diag>
+          <div>
+            <span class="code r">DEXRL <span class="soon-tag">IN PROGRESS</span></span>
+            <h3 class="r">RL Policy Evaluation on a Robotic Hand</h3>
+                <p class="r">Benchmarking and evaluating novel RL policies on an open-source dexterous robotic hand.</p>
+            <div class="tags"><span class="r">Hardware</span><span class="r">RL</span><span class="r">Sim-to-Real</span></div>
+          </div>
+          <div class="frame r soon-frame">
+            <svg viewBox="0 0 200 130">
+              <rect class="dp filltint" x="60" y="78" width="80" height="30" rx="3"></rect>
+              <rect class="dp ds" x="74" y="107" width="52" height="13" rx="2"></rect>
+              <path class="dp ds" d="M64 78 H76 M84 78 H96 M104 78 H116 M124 78 H136"></path>
+              <g class="hf" style="animation-delay:.45s">
+                <rect class="dp filltint" x="64" y="52" width="12" height="15" rx="2"></rect>
+                <rect class="dp filltint" x="64" y="66" width="12" height="13" rx="2"></rect>
+                <circle class="dp dot" cx="70" cy="66" r="2"></circle>
+              </g>
+              <g class="hf" style="animation-delay:.30s">
+                <rect class="dp filltint" x="84" y="40" width="12" height="18" rx="2"></rect>
+                <rect class="dp filltint" x="84" y="57" width="12" height="22" rx="2"></rect>
+                <circle class="dp dot" cx="90" cy="57" r="2"></circle>
+              </g>
+              <g class="hf" style="animation-delay:.15s">
+                <rect class="dp fillacc glowdot" x="104" y="27" width="12" height="23" rx="2"></rect>
+                <rect class="dp filltint" x="104" y="49" width="12" height="30" rx="2"></rect>
+                <circle class="dp dot glowdot" cx="110" cy="49" r="2.5"></circle>
+              </g>
+              <g class="hf" style="animation-delay:0s">
+                <rect class="dp filltint" x="124" y="37" width="12" height="19" rx="2"></rect>
+                <rect class="dp filltint" x="124" y="55" width="12" height="24" rx="2"></rect>
+                <circle class="dp dot" cx="130" cy="55" r="2"></circle>
+              </g>
+            </svg>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    {/* RESEARCH */}
+    <section id="research" class="research" data-reveal>
+      <div class="shead"><span class="ix r">_02</span><h2 class="r">Research</h2></div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:24px">
+        <p class="lead2 r">As a <span style="color:var(--white);font-weight:500">research assistant in Penn's Perception, Action &amp; Learning group</span>, I've worked on world-model architectures and RL policy evals for dextrous manipulation. Currently, I'm working on planning, reasoning, and guidance on VLAs as well as RL for flow and diffusion policies.</p>
+        <span class="r" style="font-family:var(--mono);font-size:10px;color:var(--faint);letter-spacing:.04em;white-space:nowrap;padding-top:4px;flex-shrink:0">Nov 2025 – Present<br />Philadelphia, PA</span>
+      </div>
+      <div class="focus">
+        <span class="r">World models</span><span class="r">RL</span><span class="r">VLAs</span><span class="r">Flow policies</span><span class="r">Diffusion policies</span>
+      </div>
+      <div class="pubs">
+        <div class="r" style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px">
+          <span class="lbl" style="color:var(--dim);letter-spacing:.12em;font-size:12px">Publications</span>
+          <a href="https://scholar.google.com/citations?user=NyJV7ZIAAAAJ&hl=en" target="_blank" rel="noopener" class="lbl" style="color:var(--dim);font-size:10px;transition:color .2s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--dim)'">Google Scholar ↗</a>
+        </div>
+        <a class="pub r" href="https://ieeexplore.ieee.org/document/10679999" target="_blank" rel="noopener">
+          <span class="pt">A2D2: AI-Driven Autonomous Drone-Based Detection Network for Wildfires</span>
+          <span class="venue">ARIS 2024 · Taipei ↗</span>
+        </a>
+        <a class="pub r" href="https://raise.mit.edu/wp-content/uploads/2025/08/MIT_AIED_2024-Calvin-Zhou-AI-Driven-Block-coding-Educational-Environment-for-Teaching-Learning-and-Prototyping-AI.pdf" target="_blank" rel="noopener">
+          <span class="pt">AI-Driven Block-coding Educational Environment for Teaching, Learning, and Prototyping AI</span>
+          <span class="venue">MIT AI + Edu Summit 2024 · Cambridge ↗</span>
+        </a>
+        <a class="pub r" href="https://ic-sd.org/2024/11/17/icsd-2024-proceedings/" target="_blank" rel="noopener">
+          <span class="pt">AIBEE: AI-Driven Block-coding Educational Environment Empowering Inclusive and Quality AI Education for All</span>
+          <span class="venue">ICSD 2024 · NYC ↗</span>
+        </a>
+      </div>
+    </section>
+
+    {/* EXPERIENCE */}
+    <section id="experience" data-reveal>
+      <div class="shead"><span class="ix r">_03</span><h2 class="r">Experience</h2></div>
+      <div class="exp">
+        <div class="row r">
+          <div class="when">Dec 2025 — Present<br />Menlo Park, CA</div>
+          <div>
+            <div class="org">Bodhium Labs</div>
+            <div class="role">Software Engineer</div>
+            <ul>
+              <li>Applied AI research lab startup led by Wharton prof and former Deepmind eng.</li>
+              <li>A lot of building, learning, researching, shipping, and working with clients.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row r">
+          <div class="when">Summer 2025<br />Lexington, MA</div>
+          <div>
+            <div class="org">MIT Lincoln Laboratory · Group 105</div>
+            <div class="role">Research Intern</div>
+            <ul>
+              <li>Worked on signal processing, radar, and drones. Met some insanely smart and kind people.
+            </ul>
+          </div>
+        </div>
+
+        <div class="row r">
+          <div class="when">2021 - 2025</div>
+          <div>
+            <div class="org">W3B Education</div>
+            <div class="role">Founder</div>
+            <ul>
+              <li>Founded and ran a youth entreprenuership org. Reached 2,000+ students across 30+ countries.</li>
+              <li>Talked to some really cool people and met a lot of my mentors.
+            </ul>
+          </div>
+        </div>
+
+        <div class="row r">
+          <div class="when">Sep 2025 - Apr 2026<br />Philadelphia, PA</div>
+          <div>
+            <div class="org">Wharton Impact Venture Associates</div>
+            <div class="role">Analyst</div>
+            <ul>
+              <li>Talked to many early-stage climate tech startup founders and led a deal.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* WRITING */}
+    <section id="writing" data-reveal>
+      <div class="shead"><span class="ix r">_04</span><h2 class="r">Writing</h2></div>
+      <div class="log">
+        {
+          posts.map((p) => (
+            <a class="r" href={`/writing/${p.id}/`}>
+              <span class="li">
+                <span class="t">{p.data.title}</span>
+                {p.data.summary && <span class="s">{p.data.summary}</span>}
+              </span>
+              <span class="ar">↗</span>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    {/* ABOUT */}
+    <section id="about" data-reveal>
+      <div class="shead"><span class="ix r">_05</span><h2 class="r">About</h2></div>
+      <div class="about">
+        <div>
+            <p class="r">I'm an engineer and researcher at the intersection of AI and robotics. <span class="dim">I like building systems that touch the real world, and I think best at the boundary between research and shipping. Penn M&amp;T (AI, CS, and Finance)</span></p>
+          <dl class="stack" style="margin-top:36px">
+            <div class="r"><dt>Languages</dt><dd>Python · TypeScript · Java · OCaml</dd></div>
+            <div class="r"><dt>ML / AI</dt><dd>PyTorch · TensorFlow · Hugging Face · OpenCV</dd></div>
+            <div class="r"><dt>Systems</dt><dd>FastAPI · React · Next.js · Docker · PostgreSQL</dd></div>
+            <div class="r"><dt>Cloud</dt><dd>GCP · AWS</dd></div>
+          </dl>
+        </div>
+        <div>
+          <div class="frame portrait r">
+            <img src="/images/portrait.jpg" alt="Calvin Zhou" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  {/* CONTACT */}
+  <section class="contact" id="contact" data-reveal>
+    <div class="wrap">
+      <div class="shead"><span class="ix r">_06</span><h2 class="r">Contact</h2></div>
+      <p class="lead r" style="margin-top:18px;max-width:42ch">Open to robotics &amp; ML engineering roles. I'm happiest when I'm building things that matter!</p>
+      <div class="links">
+        <a class="r" href="mailto:czhou6@seas.upenn.edu">↳ Email</a>
+        <a class="r" href="https://github.com/calvinyz" target="_blank" rel="noopener">↳ GitHub</a>
+        <a class="r" href="https://linkedin.com/in/calvinyzhou" target="_blank" rel="noopener">↳ LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    import { animate, stagger, svg, utils } from "animejs";
+
+    animate(".hero .r", { opacity: [0, 1], translateY: [18, 0], delay: stagger(70), duration: 800, ease: "outExpo" });
+
+    // globe
+    const gc = document.querySelector(".globe") as HTMLCanvasElement | null;
+    if (gc) {
+      const g = gc.getContext("2d")!;
+      const DPR = Math.min(devicePixelRatio || 1, 2);
+      let w = 0, h = 0, rad = 0;
+      const fit = () => {
+        const b = gc.getBoundingClientRect();
+        w = gc.width = b.width * DPR; h = gc.height = b.height * DPR; rad = Math.min(w, h) * 0.34;
+      };
+      fit(); addEventListener("resize", fit, { passive: true });
+
+      const N = 110, pts: number[][] = [];
+      for (let i = 0; i < N; i++) {
+        const y = 1 - (i / (N - 1)) * 2, r = Math.sqrt(1 - y * y), th = i * 2.399963;
+        pts.push([Math.cos(th) * r, y, Math.sin(th) * r]);
+      }
+      const edges: number[][] = [];
+      for (let i = 0; i < N; i++) for (let j = i + 1; j < N; j++) {
+        const dx = pts[i][0] - pts[j][0], dy = pts[i][1] - pts[j][1], dz = pts[i][2] - pts[j][2];
+        if (dx * dx + dy * dy + dz * dz < 0.16) edges.push([i, j]);
+      }
+      const hot = new Set<number>(); for (let k = 0; k < 8; k++) hot.add((k * 13 + 4) % N);
+
+      let ry = 0.4, rx = -0.3, vy = 0.003, vx = 0, drag = false, lx = 0, ly = 0;
+      const hint = document.querySelector(".globe-hint") as HTMLElement | null;
+      const inGlobe = (e: PointerEvent) => {
+        const r = gc.getBoundingClientRect();
+        return e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+      };
+      addEventListener("pointerdown", (e) => {
+        if (!inGlobe(e)) return;
+        e.preventDefault();
+        drag = true; lx = e.clientX; ly = e.clientY; vy = vx = 0;
+        document.body.classList.add("dragging");
+        if (hint) hint.style.opacity = "0";
+      });
+      addEventListener("pointermove", (e) => {
+        if (!drag) return;
+        vy = (e.clientX - lx) * 0.0008; vx = (e.clientY - ly) * 0.0008;
+        ry += vy * 18; rx += vx * 18; lx = e.clientX; ly = e.clientY;
+      }, { passive: true });
+      addEventListener("pointerup", () => { drag = false; document.body.classList.remove("dragging"); });
+
+      const rot = (p: number[]) => {
+        const cy = Math.cos(ry), sy = Math.sin(ry);
+        let x = p[0] * cy - p[2] * sy, z = p[0] * sy + p[2] * cy;
+        const cx2 = Math.cos(rx), sx = Math.sin(rx);
+        const y = p[1] * cx2 - z * sx; z = p[1] * sx + z * cx2;
+        return [x, y, z];
+      };
+
+      let t = 0;
+      const loop = () => {
+        if (!drag) { ry += vy; rx += vx; vy += (0.003 - vy) * 0.02; vx *= 0.94; }
+        t += 0.03;
+        g.clearRect(0, 0, w, h);
+        const ox = w / 2, oy = h / 2;
+        const pr = pts.map(rot).map((p) => {
+          const k = 1 / (2 - p[2] * 0.55);
+          return [ox + p[0] * rad * k, oy + p[1] * rad * k, p[2]];
+        });
+        for (const [a, b] of edges) {
+          const za = (pr[a][2] + pr[b][2]) / 2, al = 0.08 + (za + 1) / 2 * 0.26;
+          g.strokeStyle = `rgba(120,160,210,${al.toFixed(3)})`;
+          g.lineWidth = DPR * (0.4 + (za + 1) / 2 * 0.6);
+          g.beginPath(); g.moveTo(pr[a][0], pr[a][1]); g.lineTo(pr[b][0], pr[b][1]); g.stroke();
+        }
+        pr.map((p, i) => [p, i] as const).sort((a, b) => a[0][2] - b[0][2]).forEach(([p, i]) => {
+          const z = p[2], al = 0.2 + (z + 1) / 2 * 0.6, ho = hot.has(i);
+          const pulse = ho ? 0.55 + 0.45 * Math.sin(t + i) : 1;
+          g.fillStyle = ho ? `rgba(243,162,58,${(al * pulse).toFixed(3)})` : `rgba(200,220,255,${al.toFixed(3)})`;
+          g.beginPath(); g.arc(p[0], p[1], DPR * ((ho ? 1.8 : 1) + (z + 1) / 2 * 1.1), 0, 7); g.fill();
+        });
+        requestAnimationFrame(loop);
+      };
+      loop();
+    }
+
+    // reveals
+    function drawDiag(el: Element) {
+      const dp = svg.createDrawable(el.querySelectorAll(".dp"));
+      utils.set(dp, { draw: "0 0" });
+      animate(dp, { draw: ["0 0", "0 1"], duration: 800, delay: stagger(60), ease: "inOutQuad" });
+    }
+    const io = new IntersectionObserver((ents) => {
+      ents.forEach((e) => {
+        if (!e.isIntersecting) return;
+        animate(e.target.querySelectorAll(".r"), { opacity: [0, 1], translateY: [16, 0], delay: stagger(45), duration: 700, ease: "outExpo" });
+        const rule = e.target.querySelector(".rule");
+        if (rule) animate(rule, { scaleX: [0, 1], duration: 900, ease: "outExpo", delay: 60 });
+        const lis = e.target.querySelectorAll("li");
+        if (lis.length) animate(lis, { opacity: [0, 1], translateX: [-10, 0], delay: stagger(50, { start: 200 }), duration: 500, ease: "outExpo" });
+        e.target.querySelectorAll("[data-diag]").forEach(drawDiag);
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll("[data-reveal]").forEach((s) => io.observe(s));
+  </script>
+</Base>

@@ -1,0 +1,129 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = "Calvin Zhou",
+  description = "AI & robotics engineer",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0a1120" />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <canvas class="warp" aria-hidden="true"></canvas>
+    <div class="scrim" aria-hidden="true"></div>
+    <div class="pglow" aria-hidden="true"></div>
+
+    <header id="hdr">
+      <a class="brand" href="/">CALVIN ZHOU</a>
+      <nav>
+        <a href="/#projects">Projects</a>
+        <a href="/#research">Research</a>
+        <a href="/#experience">Experience</a>
+        <a href="/#writing">Writing</a>
+        <a href="/#about">About</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </header>
+
+    <slot />
+
+    <script>
+      // warp — tune cruise (speed) and N (star count) below
+      const cv = document.querySelector(".warp") as HTMLCanvasElement;
+      const ctx = cv.getContext("2d")!;
+      const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const DPR = Math.min(devicePixelRatio || 1, 2);
+      const N = Math.min(400, Math.floor(innerWidth / 3.4));
+      let W: number, H: number, cx: number, cy: number, maxR: number, tcx: number, tcy: number;
+      const R = (a: number, b: number) => a + Math.random() * (b - a);
+      function resize() {
+        W = cv.width = innerWidth * DPR;
+        H = cv.height = innerHeight * DPR;
+        cx = W / 2; cy = H / 2; tcx = cx; tcy = cy; maxR = Math.hypot(cx, cy);
+      }
+      resize();
+      addEventListener("resize", resize, { passive: true });
+      const mk = (seed: boolean) => ({
+        ang: Math.random() * Math.PI * 2,
+        rad: seed ? Math.random() * maxR : R(2, 30),
+        z: R(0.4, 1.6),
+        hot: Math.random() < 0.04,
+      });
+      const stars = Array.from({ length: N }, () => mk(true));
+
+      let cruise = 0.3, speed = 0.3, boost = 0, lastY = scrollY;
+      function onScroll() {
+        boost = Math.min(boost + Math.abs(scrollY - lastY) * 0.05, 14);
+        lastY = scrollY;
+        cv.style.opacity = String(Math.max(0.28, 1 - (scrollY / (innerHeight * 0.8)) * 0.72));
+      }
+      addEventListener("scroll", onScroll, { passive: true });
+      addEventListener("wheel", (e) => {
+        boost = Math.min(boost + Math.abs(e.deltaY) * 0.02, 14);
+      }, { passive: true });
+
+      const pglow = document.querySelector(".pglow") as HTMLElement | null;
+      addEventListener("pointermove", (e) => {
+        tcx = W / 2 + (e.clientX * DPR - W / 2) * 0.35;
+        tcy = H / 2 + (e.clientY * DPR - H / 2) * 0.35;
+        if (pglow) pglow.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+      }, { passive: true });
+
+      function frame() {
+        speed += (cruise + boost - speed) * 0.07;
+        boost *= 0.93;
+        cx += (tcx - cx) * 0.04; cy += (tcy - cy) * 0.04;
+        ctx.fillStyle = "rgba(8,13,24,0.34)";
+        ctx.fillRect(0, 0, W, H);
+        for (const s of stars) {
+          const pr = s.rad;
+          s.rad += speed * s.z * (0.5 + (s.rad / maxR) * 3.2);
+          if (s.rad > maxR) { Object.assign(s, mk(false)); continue; }
+          const c = Math.cos(s.ang), si = Math.sin(s.ang), t = s.rad / maxR;
+          ctx.strokeStyle = s.hot
+            ? `rgba(243,162,58,${(0.24 + t * 0.6).toFixed(2)})`
+            : `rgba(200,220,255,${(0.13 + t * 0.52).toFixed(2)})`;
+          ctx.lineWidth = (0.35 + t * 1.5) * DPR;
+          ctx.beginPath();
+          ctx.moveTo(cx + c * pr, cy + si * pr);
+          ctx.lineTo(cx + c * s.rad, cy + si * s.rad);
+          ctx.stroke();
+        }
+        requestAnimationFrame(frame);
+      }
+      if (reduce) {
+        ctx.fillStyle = "#0a1120";
+        ctx.fillRect(0, 0, W, H);
+        for (const s of stars) {
+          const x = cx + Math.cos(s.ang) * s.rad, y = cy + Math.sin(s.ang) * s.rad;
+          const t = s.rad / maxR, sz = (0.6 + t * 1.6) * DPR;
+          ctx.fillStyle = s.hot ? `rgba(243,162,58,${0.3 + t * 0.4})` : `rgba(200,220,255,${0.2 + t * 0.4})`;
+          ctx.fillRect(x, y, sz, sz);
+        }
+      } else {
+        requestAnimationFrame(frame);
+      }
+
+      const hdr = document.getElementById("hdr")!;
+      addEventListener("scroll", () => hdr.classList.toggle("stuck", scrollY > 40), { passive: true });
+    </script>
+  </body>
+</html>
