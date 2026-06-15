@@ -57,8 +57,8 @@ const posts = (await getCollection("writing", ({ data }) => !data.draft)).sort(
             <p class="result r">Piloted with 20+ students</p>
             <div class="tags"><span class="r">Full-stack</span><span class="r">MCP</span><span class="r">Kernels</span></div>
             <div class="proj-links r">
-              <a href="https://raise.mit.edu/wp-content/uploads/2025/08/MIT_AIED_2024-Calvin-Zhou-AI-Driven-Block-coding-Educational-Environment-for-Teaching-Learning-and-Prototyping-AI.pdf" target="_blank" rel="noopener">Paper <span class="ar">↗</span></a>
               <a href="https://www.youtube.com/watch?v=wQJZNJDN83c" target="_blank" rel="noopener">Talk <span class="ar">↗</span></a>
+              <a href="https://raise.mit.edu/wp-content/uploads/2025/08/MIT_AIED_2024-Calvin-Zhou-AI-Driven-Block-coding-Educational-Environment-for-Teaching-Learning-and-Prototyping-AI.pdf" target="_blank" rel="noopener">Paper <span class="ar">↗</span></a>
               <a href="https://github.com/calvinyz/aibee" target="_blank" rel="noopener">Code <span class="ar">↗</span></a>
             </div>
           </div>
@@ -257,6 +257,15 @@ const posts = (await getCollection("writing", ({ data }) => !data.draft)).sort(
   <script>
     import { animate, stagger, svg, utils } from "animejs";
 
+    document.querySelectorAll<HTMLElement>(".proj.linked").forEach((proj) => {
+      const first = proj.querySelector<HTMLAnchorElement>(".proj-links a");
+      if (!first) return;
+      proj.addEventListener("click", (e) => {
+        if ((e.target as Element).closest("a")) return;
+        window.open(first.href, "_blank", "noopener");
+      });
+    });
+
     animate(".hero .r", { opacity: [0, 1], translateY: [18, 0], delay: stagger(70), duration: 800, ease: "outExpo" });
 
     // globe
@@ -298,8 +307,8 @@ const posts = (await getCollection("writing", ({ data }) => !data.draft)).sort(
       });
       addEventListener("pointermove", (e) => {
         if (!drag) return;
-        vy = (e.clientX - lx) * 0.0008; vx = (e.clientY - ly) * 0.0008;
-        ry += vy * 18; rx += vx * 18; lx = e.clientX; ly = e.clientY;
+        vy = (e.clientX - lx) * 0.012; vx = (e.clientY - ly) * 0.012;
+        ry += vy; rx += vx; lx = e.clientX; ly = e.clientY;
       }, { passive: true });
       addEventListener("pointerup", () => { drag = false; document.body.classList.remove("dragging"); });
 

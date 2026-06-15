@@ -80,7 +80,6 @@ section{padding-block:clamp(5rem,12vh,9rem)}
 .proj .frame{justify-self:end;width:360px}
 .proj.linked{cursor:pointer}
 .proj.linked:hover{padding-inline-start:14px}
-.proj.linked .proj-links a:first-child::before{content:"";position:absolute;inset:0}
 .proj-links a{position:relative;z-index:1}
 .proj .code{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent)}
 .proj h3{font-size:clamp(1.3rem,2.6vw,1.9rem);font-weight:700;letter-spacing:-.01em;margin:10px 0 12px;line-height:1.05}
