@@ -122,7 +122,7 @@ const posts = (await getCollection("writing", ({ data }) => !data.draft)).sort(
     {/* RESEARCH */}
     <section id="research" class="research" data-reveal>
       <div class="shead"><span class="ix r">_02</span><h2 class="r">Research</h2></div>
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:24px">
+      <div class="research-meta">
         <p class="lead2 r">As a <span style="color:var(--white);font-weight:500">research assistant in Penn's Perception, Action &amp; Learning group</span>, I've worked on world-model architectures and RL policy evals for dextrous manipulation. Currently, I'm working on planning, reasoning, and guidance on VLAs as well as RL for flow and diffusion policies.</p>
         <span class="r" style="font-family:var(--mono);font-size:10px;color:var(--faint);letter-spacing:.04em;white-space:nowrap;padding-top:4px;flex-shrink:0">Nov 2025 – Present<br />Philadelphia, PA</span>
       </div>
@@ -224,11 +224,11 @@ const posts = (await getCollection("writing", ({ data }) => !data.draft)).sort(
       <div class="shead"><span class="ix r">_05</span><h2 class="r">About</h2></div>
       <div class="about">
         <div>
-            <p class="r">I'm an engineer and researcher at the intersection of AI and robotics. <span class="dim">I like building systems that touch the real world, and I think best at the boundary between research and shipping. Penn M&amp;T (AI, CS, and Finance)</span></p>
+          <p class="r">I'm an engineer and researcher at the intersection of AI and robotics. <span class="dim">I like building systems that touch the real world, and I think best at the boundary between research and shipping. Penn M&amp;T (AI, CS, and Finance)</span></p>
           <dl class="stack" style="margin-top:36px">
-            <div class="r"><dt>Languages</dt><dd>Python · TypeScript · Java · OCaml</dd></div>
+            <div class="r"><dt>Languages</dt><dd>Python · TypeScript · Java · OCaml · HCL</dd></div>
             <div class="r"><dt>ML / AI</dt><dd>PyTorch · TensorFlow · Hugging Face · OpenCV</dd></div>
-            <div class="r"><dt>Systems</dt><dd>FastAPI · React · Next.js · Docker · PostgreSQL</dd></div>
+            <div class="r"><dt>Systems</dt><dd>FastAPI · React · Next.js · Docker · PostgreSQL · Terraform</dd></div>
             <div class="r"><dt>Cloud</dt><dd>GCP · AWS</dd></div>
           </dl>
         </div>
@@ -247,7 +247,7 @@ const posts = (await getCollection("writing", ({ data }) => !data.draft)).sort(
       <div class="shead"><span class="ix r">_06</span><h2 class="r">Contact</h2></div>
       <p class="lead r" style="margin-top:18px;max-width:42ch">Open to robotics &amp; ML engineering roles. I'm happiest when I'm building things that matter!</p>
       <div class="links">
-        <a class="r" href="mailto:czhou6@seas.upenn.edu">↳ Email</a>
+        <a class="r" href="mailto:czhou6@engineering.upenn.edu">↳ Email</a>
         <a class="r" href="https://github.com/calvinyz" target="_blank" rel="noopener">↳ GitHub</a>
         <a class="r" href="https://linkedin.com/in/calvinyzhou" target="_blank" rel="noopener">↳ LinkedIn</a>
       </div>
@@ -270,7 +270,7 @@ const posts = (await getCollection("writing", ({ data }) => !data.draft)).sort(
 
     // globe
     const gc = document.querySelector(".globe") as HTMLCanvasElement | null;
-    if (gc) {
+    if (gc && window.innerWidth > 760) {
       const g = gc.getContext("2d")!;
       const DPR = Math.min(devicePixelRatio || 1, 2);
       let w = 0, h = 0, rad = 0;

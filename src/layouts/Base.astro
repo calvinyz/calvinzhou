@@ -41,7 +41,18 @@ const {
         <a href="/#about">About</a>
         <a href="/#contact">Contact</a>
       </nav>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
     </header>
+    <div class="menu-drawer" id="menuDrawer" aria-hidden="true">
+      <a href="/#projects">Projects</a>
+      <a href="/#research">Research</a>
+      <a href="/#experience">Experience</a>
+      <a href="/#writing">Writing</a>
+      <a href="/#about">About</a>
+      <a href="/#contact">Contact</a>
+    </div>
 
     <slot />
 
@@ -124,6 +135,20 @@ const {
 
       const hdr = document.getElementById("hdr")!;
       addEventListener("scroll", () => hdr.classList.toggle("stuck", scrollY > 40), { passive: true });
+
+      const menuBtn = document.getElementById("menuBtn")!;
+      const menuDrawer = document.getElementById("menuDrawer")!;
+      menuBtn.addEventListener("click", () => {
+        const open = menuBtn.getAttribute("aria-expanded") === "true";
+        menuBtn.setAttribute("aria-expanded", String(!open));
+        menuDrawer.classList.toggle("open", !open);
+      });
+      menuDrawer.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => {
+          menuBtn.setAttribute("aria-expanded", "false");
+          menuDrawer.classList.remove("open");
+        });
+      });
     </script>
   </body>
 </html>
