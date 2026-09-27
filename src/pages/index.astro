@@ -20,7 +20,7 @@ const posts = (await getCollection("writing", ({ data }) => !data.draft)).sort(
         <h1><span class="r">Calvin</span> <span class="r">Zhou</span></h1>
         <p class="lead r">I build systems that perceive, reason, and act, from autonomous drones to agentic search.</p>
         <div class="meta">
-          <div class="r"><span class="lbl">Now</span><b>SWE @ Bodhium Labs</b></div>
+          <div class="r"><span class="lbl">Now</span><b>Eng @ Bodhium Labs</b></div>
           <div class="r"><span class="lbl">Research</span><b>Penn PAL Group</b></div>
         </div>
       </div>
@@ -49,6 +49,21 @@ const posts = (await getCollection("writing", ({ data }) => !data.draft)).sort(
           </div>
         </article>
 
+        <article class="proj linked" data-diag>
+          <div>
+            <span class="code r">FERRO</span>
+            <h3 class="r">Real-time Policy Serving for Robots</h3>
+                <p class="r">A two-rate C++ runtime that serves an RL policy to a simulated 7-DOF arm. A 1 kHz control loop stays steady even when inference stalls.</p>
+            <p class="result r">35.5µs control p99 under 3x policy stalls</p>
+            <div class="tags"><span class="r">C++</span><span class="r">Rust</span><span class="r">Real-time</span></div>
+            <div class="proj-links r">
+              <a href="https://github.com/calvinyz/ferro" target="_blank" rel="noopener">Code <span class="ar">↗</span></a>
+            </div>
+          </div>
+          <div class="frame tinted r">
+            <img src="/images/ferro.gif" alt="Ferro: 7-DOF arm pushing a puck onto a goal" />
+          </div>
+        </article>
         <article class="proj linked" data-diag>
           <div>
             <span class="code r">AIBEE</span>
@@ -81,41 +96,6 @@ const posts = (await getCollection("writing", ({ data }) => !data.draft)).sort(
             <img src="/images/crit.png" alt="CRIT" />
           </div>
         </article>
-        <article class="proj soon" data-diag>
-          <div>
-            <span class="code r">DEXRL <span class="soon-tag">IN PROGRESS</span></span>
-            <h3 class="r">RL Policy Evaluation on a Robotic Hand</h3>
-                <p class="r">Benchmarking and evaluating novel RL policies on an open-source dexterous robotic hand.</p>
-            <div class="tags"><span class="r">Hardware</span><span class="r">RL</span><span class="r">Sim-to-Real</span></div>
-          </div>
-          <div class="frame r soon-frame">
-            <svg viewBox="0 0 200 130">
-              <rect class="dp filltint" x="60" y="78" width="80" height="30" rx="3"></rect>
-              <rect class="dp ds" x="74" y="107" width="52" height="13" rx="2"></rect>
-              <path class="dp ds" d="M64 78 H76 M84 78 H96 M104 78 H116 M124 78 H136"></path>
-              <g class="hf" style="animation-delay:.45s">
-                <rect class="dp filltint" x="64" y="52" width="12" height="15" rx="2"></rect>
-                <rect class="dp filltint" x="64" y="66" width="12" height="13" rx="2"></rect>
-                <circle class="dp dot" cx="70" cy="66" r="2"></circle>
-              </g>
-              <g class="hf" style="animation-delay:.30s">
-                <rect class="dp filltint" x="84" y="40" width="12" height="18" rx="2"></rect>
-                <rect class="dp filltint" x="84" y="57" width="12" height="22" rx="2"></rect>
-                <circle class="dp dot" cx="90" cy="57" r="2"></circle>
-              </g>
-              <g class="hf" style="animation-delay:.15s">
-                <rect class="dp fillacc glowdot" x="104" y="27" width="12" height="23" rx="2"></rect>
-                <rect class="dp filltint" x="104" y="49" width="12" height="30" rx="2"></rect>
-                <circle class="dp dot glowdot" cx="110" cy="49" r="2.5"></circle>
-              </g>
-              <g class="hf" style="animation-delay:0s">
-                <rect class="dp filltint" x="124" y="37" width="12" height="19" rx="2"></rect>
-                <rect class="dp filltint" x="124" y="55" width="12" height="24" rx="2"></rect>
-                <circle class="dp dot" cx="130" cy="55" r="2"></circle>
-              </g>
-            </svg>
-          </div>
-        </article>
       </div>
     </section>
 
@@ -123,28 +103,34 @@ const posts = (await getCollection("writing", ({ data }) => !data.draft)).sort(
     <section id="research" class="research" data-reveal>
       <div class="shead"><span class="ix r">_02</span><h2 class="r">Research</h2></div>
       <div class="research-meta">
-        <p class="lead2 r">As a <span style="color:var(--white);font-weight:500">research assistant in Penn's Perception, Action &amp; Learning group</span>, I've worked on world-model architectures and RL policy evals for dextrous manipulation. Currently, I'm working on planning, reasoning, and guidance on VLAs as well as RL for flow and diffusion policies.</p>
+        <p class="lead2 r">As a <span style="color:var(--white);font-weight:500">research assistant in Penn's Perception, Action &amp; Learning group</span>, I've worked on world-model architectures and RL policy evals for dexterous manipulation. Currently, I'm designing guidance for flow-matching policies and building training and eval pipelines for VLAs.</p>
         <span class="r" style="font-family:var(--mono);font-size:10px;color:var(--faint);letter-spacing:.04em;white-space:nowrap;padding-top:4px;flex-shrink:0">Nov 2025 – Present<br />Philadelphia, PA</span>
       </div>
       <div class="focus">
-        <span class="r">World models</span><span class="r">RL</span><span class="r">VLAs</span><span class="r">Flow policies</span><span class="r">Diffusion policies</span>
+        <span class="r">Flow matching</span><span class="r">Guidance</span><span class="r">VLAs</span><span class="r">World models</span><span class="r">RL</span>
+      </div>
+      <div class="research-meta" style="margin-top:44px">
+        <p class="lead2 r">As a <span style="color:var(--white);font-weight:500">researcher at Bodhium Labs</span>, I work on web-scale data, AI search, and knowledge extraction.</p>
+      </div>
+      <div class="focus">
+        <span class="r">Web-as-Corpus</span><span class="r">NLP</span><span class="r">LLM Evals</span>
       </div>
       <div class="pubs">
         <div class="r" style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px">
-          <span class="lbl" style="color:var(--dim);letter-spacing:.12em;font-size:12px">Publications</span>
+          <span class="lbl" style="color:var(--dim);letter-spacing:.12em;font-size:12px">Publications &amp; Talks</span>
           <a href="https://scholar.google.com/citations?user=NyJV7ZIAAAAJ&hl=en" target="_blank" rel="noopener" class="lbl" style="color:var(--dim);font-size:10px;transition:color .2s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--dim)'">Google Scholar ↗</a>
         </div>
+        <a class="pub r" href="https://arxiv.org/abs/2609.24106" target="_blank" rel="noopener">
+          <span class="pt">You Can Tell Who's Asking: What the Web's Questions Are Made Of, and Where They Come From</span>
+          <span class="venue">WAC-13 @ EMNLP 2026 · Oral ↗</span>
+        </a>
         <a class="pub r" href="https://ieeexplore.ieee.org/document/10679999" target="_blank" rel="noopener">
           <span class="pt">A2D2: AI-Driven Autonomous Drone-Based Detection Network for Wildfires</span>
           <span class="venue">ARIS 2024 · Taipei ↗</span>
         </a>
-        <a class="pub r" href="https://raise.mit.edu/wp-content/uploads/2025/08/MIT_AIED_2024-Calvin-Zhou-AI-Driven-Block-coding-Educational-Environment-for-Teaching-Learning-and-Prototyping-AI.pdf" target="_blank" rel="noopener">
+        <a class="pub r" href="https://www.youtube.com/watch?v=wQJZNJDN83c" target="_blank" rel="noopener">
           <span class="pt">AI-Driven Block-coding Educational Environment for Teaching, Learning, and Prototyping AI</span>
-          <span class="venue">MIT AI + Edu Summit 2024 · Cambridge ↗</span>
-        </a>
-        <a class="pub r" href="https://ic-sd.org/2024/11/17/icsd-2024-proceedings/" target="_blank" rel="noopener">
-          <span class="pt">AIBEE: AI-Driven Block-coding Educational Environment Empowering Inclusive and Quality AI Education for All</span>
-          <span class="venue">ICSD 2024 · NYC ↗</span>
+          <span class="venue">Talk · MIT AI + Edu Summit 2024 ↗</span>
         </a>
       </div>
     </section>
@@ -157,7 +143,7 @@ const posts = (await getCollection("writing", ({ data }) => !data.draft)).sort(
           <div class="when">Dec 2025 — Present<br />Menlo Park, CA</div>
           <div>
             <div class="org">Bodhium Labs</div>
-            <div class="role">Software Engineer</div>
+            <div class="role">Software and Research Engineer</div>
             <ul>
               <li>Applied AI research lab startup led by Wharton prof and former Deepmind eng.</li>
               <li>A lot of building, learning, researching, shipping, and working with clients.</li>
@@ -226,8 +212,8 @@ const posts = (await getCollection("writing", ({ data }) => !data.draft)).sort(
         <div>
           <p class="r">I'm an engineer and researcher at the intersection of AI and robotics. <span class="dim">I like building systems that touch the real world, and I think best at the boundary between research and shipping. Penn M&amp;T (AI, CS, and Finance)</span></p>
           <dl class="stack" style="margin-top:36px">
-            <div class="r"><dt>Languages</dt><dd>Python · TypeScript · Java · OCaml · HCL</dd></div>
-            <div class="r"><dt>ML / AI</dt><dd>PyTorch · TensorFlow · Hugging Face · OpenCV</dd></div>
+            <div class="r"><dt>Languages</dt><dd>Python · C++ · Rust · TypeScript · JavaScript · Java · OCaml · HCL</dd></div>
+            <div class="r"><dt>ML / AI</dt><dd>PyTorch · JAX · TensorFlow · ONNX · MuJoCo · Hugging Face · OpenCV</dd></div>
             <div class="r"><dt>Systems</dt><dd>FastAPI · React · Next.js · Docker · PostgreSQL · Terraform</dd></div>
             <div class="r"><dt>Cloud</dt><dd>GCP · AWS</dd></div>
           </dl>
