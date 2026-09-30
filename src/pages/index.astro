@@ -23,13 +23,17 @@ const posts = (await getCollection("writing", ({ data }) => !data.draft)).sort(
           <div class="r"><span class="lbl">Now</span><b>Eng @ Bodhium Labs</b></div>
           <div class="r"><span class="lbl">Research</span><b>Penn PAL Group</b></div>
         </div>
+        <a class="gh r" href="https://github.com/calvinyz" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          github/calvinyz <span class="ar">↗</span>
+        </a>
       </div>
       <div class="scrollcue" aria-hidden="true">↓</div>
     </section>
 
     {/* PROJECTS */}
     <section id="projects" data-reveal>
-      <div class="shead"><span class="ix r">_01</span><h2 class="r">Selected Projects</h2></div>
+      <div class="shead"><span class="ix r">01</span><h2 class="r">Selected projects</h2></div>
       <div class="projects">
 
         <article class="proj linked" data-diag>
@@ -101,10 +105,10 @@ const posts = (await getCollection("writing", ({ data }) => !data.draft)).sort(
 
     {/* RESEARCH */}
     <section id="research" class="research" data-reveal>
-      <div class="shead"><span class="ix r">_02</span><h2 class="r">Research</h2></div>
+      <div class="shead"><span class="ix r">02</span><h2 class="r">Research</h2></div>
       <div class="research-meta">
         <p class="lead2 r">As a <span style="color:var(--white);font-weight:500">research assistant in Penn's Perception, Action &amp; Learning group</span>, I've worked on world-model architectures and RL policy evals for dexterous manipulation. Currently, I'm designing guidance for flow-matching policies and building training and eval pipelines for VLAs.</p>
-        <span class="r" style="font-family:var(--mono);font-size:10px;color:var(--faint);letter-spacing:.04em;white-space:nowrap;padding-top:4px;flex-shrink:0">Nov 2025 – Present<br />Philadelphia, PA</span>
+        <span class="r" style="font-size:13px;color:var(--faint);white-space:nowrap;padding-top:4px;flex-shrink:0">Nov 2025 – Present<br />Philadelphia, PA</span>
       </div>
       <div class="focus">
         <span class="r">Flow matching</span><span class="r">Guidance</span><span class="r">VLAs</span><span class="r">World models</span><span class="r">RL</span>
@@ -116,9 +120,9 @@ const posts = (await getCollection("writing", ({ data }) => !data.draft)).sort(
         <span class="r">Web-as-Corpus</span><span class="r">NLP</span><span class="r">LLM Evals</span>
       </div>
       <div class="pubs">
-        <div class="r" style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px">
-          <span class="lbl" style="color:var(--dim);letter-spacing:.12em;font-size:12px">Publications &amp; Talks</span>
-          <a href="https://scholar.google.com/citations?user=NyJV7ZIAAAAJ&hl=en" target="_blank" rel="noopener" class="lbl" style="color:var(--dim);font-size:10px;transition:color .2s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--dim)'">Google Scholar ↗</a>
+        <div class="r" style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:14px">
+          <span class="lbl" style="color:var(--dim);font-size:15px;font-weight:500">Publications &amp; Talks</span>
+          <a class="scholar" href="https://scholar.google.com/citations?user=NyJV7ZIAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar <span class="ar">↗</span></a>
         </div>
         <a class="pub r" href="https://arxiv.org/abs/2609.24106" target="_blank" rel="noopener">
           <span class="pt">You Can Tell Who's Asking: What the Web's Questions Are Made Of, and Where They Come From</span>
@@ -137,7 +141,7 @@ const posts = (await getCollection("writing", ({ data }) => !data.draft)).sort(
 
     {/* EXPERIENCE */}
     <section id="experience" data-reveal>
-      <div class="shead"><span class="ix r">_03</span><h2 class="r">Experience</h2></div>
+      <div class="shead"><span class="ix r">03</span><h2 class="r">Experience</h2></div>
       <div class="exp">
         <div class="row r">
           <div class="when">Dec 2025 — Present<br />Menlo Park, CA</div>
@@ -189,7 +193,7 @@ const posts = (await getCollection("writing", ({ data }) => !data.draft)).sort(
 
     {/* WRITING */}
     <section id="writing" data-reveal>
-      <div class="shead"><span class="ix r">_04</span><h2 class="r">Writing</h2></div>
+      <div class="shead"><span class="ix r">04</span><h2 class="r">Writing</h2></div>
       <div class="log">
         {
           posts.map((p) => (
@@ -207,7 +211,7 @@ const posts = (await getCollection("writing", ({ data }) => !data.draft)).sort(
 
     {/* ABOUT */}
     <section id="about" data-reveal>
-      <div class="shead"><span class="ix r">_05</span><h2 class="r">About</h2></div>
+      <div class="shead"><span class="ix r">05</span><h2 class="r">About</h2></div>
       <div class="about">
         <div>
           <p class="r">I'm an engineer and researcher at the intersection of AI and robotics. <span class="dim">I like building systems that touch the real world, and I think best at the boundary between research and shipping. Penn M&amp;T (AI, CS, and Finance)</span></p>
@@ -230,12 +234,13 @@ const posts = (await getCollection("writing", ({ data }) => !data.draft)).sort(
   {/* CONTACT */}
   <section class="contact" id="contact" data-reveal>
     <div class="wrap">
-      <div class="shead"><span class="ix r">_06</span><h2 class="r">Contact</h2></div>
+      <div class="shead"><span class="ix r">06</span><h2 class="r">Contact</h2></div>
       <p class="lead r" style="margin-top:18px;max-width:42ch">Open to robotics &amp; ML engineering roles. I'm happiest when I'm building things that matter!</p>
       <div class="links">
-        <a class="r" href="mailto:czhou6@engineering.upenn.edu">↳ Email</a>
-        <a class="r" href="https://github.com/calvinyz" target="_blank" rel="noopener">↳ GitHub</a>
-        <a class="r" href="https://linkedin.com/in/calvinyzhou" target="_blank" rel="noopener">↳ LinkedIn</a>
+        <a class="r" href="https://linkedin.com/in/calvinyzhou" target="_blank" rel="noopener">LinkedIn <span class="ar">↗</span></a>
+        <a class="r" href="mailto:czhou6@engineering.upenn.edu">Email <span class="ar">↗</span></a>
+        <a class="r" href="https://github.com/calvinyz" target="_blank" rel="noopener">GitHub <span class="ar">↗</span></a>
+        <a class="r" href="https://x.com/calvinyzhou" target="_blank" rel="noopener">X <span class="ar">↗</span></a>
       </div>
     </div>
   </section>
@@ -276,7 +281,32 @@ const posts = (await getCollection("writing", ({ data }) => !data.draft)).sort(
         const dx = pts[i][0] - pts[j][0], dy = pts[i][1] - pts[j][1], dz = pts[i][2] - pts[j][2];
         if (dx * dx + dy * dy + dz * dz < 0.16) edges.push([i, j]);
       }
-      const hot = new Set<number>(); for (let k = 0; k < 8; k++) hot.add((k * 13 + 4) % N);
+      // hot ring: existing nodes along the best-fitting great circle, pulse travels around it
+      const RING = 14, hot = new Map<number, number>();
+      const ringFor = (n: number[]) => {
+        const u = Math.abs(n[1]) < 0.9 ? [n[2], 0, -n[0]] : [0, -n[2], n[1]];
+        const ul = Math.hypot(u[0], u[1], u[2]); u[0] /= ul; u[1] /= ul; u[2] /= ul;
+        const v = [n[1] * u[2] - n[2] * u[1], n[2] * u[0] - n[0] * u[2], n[0] * u[1] - n[1] * u[0]];
+        const picks: number[] = []; let err = 0;
+        for (let k = 0; k < RING; k++) {
+          const a = (k / RING) * Math.PI * 2, c = Math.cos(a), sn = Math.sin(a);
+          const q = [u[0] * c + v[0] * sn, u[1] * c + v[1] * sn, u[2] * c + v[2] * sn];
+          let best = 0, bd = 9;
+          for (let i = 0; i < N; i++) {
+            const d = (pts[i][0] - q[0]) ** 2 + (pts[i][1] - q[1]) ** 2 + (pts[i][2] - q[2]) ** 2;
+            if (d < bd) { bd = d; best = i; }
+          }
+          picks.push(best); err += bd;
+        }
+        return { picks, err: err + (RING - new Set(picks).size) };
+      };
+      let fit0 = ringFor([1, 0, 0]);
+      for (let k = 0; k < 400; k++) {
+        const y = 1 - (k + 0.5) / 400, r = Math.sqrt(1 - y * y), th = k * 2.399963;
+        const f = ringFor([Math.cos(th) * r, y, Math.sin(th) * r]);
+        if (f.err < fit0.err) fit0 = f;
+      }
+      fit0.picks.forEach((i, k) => { if (!hot.has(i)) hot.set(i, -(k / RING) * Math.PI * 4); });
 
       let ry = 0.4, rx = -0.3, vy = 0.003, vx = 0, drag = false, lx = 0, ly = 0;
       const hint = document.querySelector(".globe-hint") as HTMLElement | null;
@@ -324,7 +354,7 @@ const posts = (await getCollection("writing", ({ data }) => !data.draft)).sort(
         }
         pr.map((p, i) => [p, i] as const).sort((a, b) => a[0][2] - b[0][2]).forEach(([p, i]) => {
           const z = p[2], al = 0.2 + (z + 1) / 2 * 0.6, ho = hot.has(i);
-          const pulse = ho ? 0.55 + 0.45 * Math.sin(t + i) : 1;
+          const pulse = ho ? 0.55 + 0.45 * Math.sin(t * 0.8 + hot.get(i)!) : 1;
           g.fillStyle = ho ? `rgba(243,162,58,${(al * pulse).toFixed(3)})` : `rgba(200,220,255,${al.toFixed(3)})`;
           g.beginPath(); g.arc(p[0], p[1], DPR * ((ho ? 1.8 : 1) + (z + 1) / 2 * 1.1), 0, 7); g.fill();
         });
