@@ -38,6 +38,23 @@ const posts = (await getCollection("writing", ({ data }) => !data.draft)).sort(
 
         <article class="proj linked" data-diag>
           <div>
+            <span class="code r">COROLLARY</span>
+            <h3 class="r">LaTeX Editor with On-device AI</h3>
+                <p class="r">An Overleaf-style LaTeX workspace for the Mac. Its AI runs on Apple's on-device model, and every edit is checked so it can't break your citations, refs or math.</p>
+            <p class="result r">98% of AI edits kept LaTeX intact, fully offline</p>
+            <div class="tags"><span class="r">Rust</span><span class="r">On-device LLMs</span><span class="r">Swift</span></div>
+            <div class="proj-links r">
+              <a href="https://calvinyz.github.io/corollary/" target="_blank" rel="noopener">Site <span class="ar">↗</span></a>
+              <a href="https://github.com/calvinyz/corollary" target="_blank" rel="noopener">Code <span class="ar">↗</span></a>
+            </div>
+          </div>
+          <div class="frame tinted r">
+            <img src="/images/corollary.jpg" alt="Corollary: editor, PDF preview and an AI edit under review" />
+          </div>
+        </article>
+
+        <article class="proj linked" data-diag>
+          <div>
             <span class="code r">A2D2</span>
             <h3 class="r">Autonomous Wildfire Detection</h3>
                 <p class="r">A drone network that finds wildfires before they spread. Deep computer vision, coverage-path planning, and deep RL in one pipeline.</p>
